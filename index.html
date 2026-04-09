@@ -61,81 +61,87 @@
     }
     .nav-cta:hover { background: #5a92a8; transform: translateY(-1px); }
 
-    /* ─── HERO REDISEÑADO (SIN CORTES Y MASIVO) ─── */
+    /* ─── HERO ACTUALIZADO ─── */
     #inicio {
       min-height: 100vh;
       display: flex; 
       align-items: center;
       justify-content: center;
-      padding: 8rem 2% 4rem;
+      padding: 8rem 4% 4rem;
       position: relative; 
       overflow: hidden;
     }
-    
     .hero-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      max-width: 1500px;
-      gap: 1.5rem;
-      z-index: 10;
+      max-width: 1300px;
+      gap: 2rem;
+      z-index: 5;
     }
-
-    /* Ajuste para que se vean completas y grandes */
-    .hero-side-img {
-      width: 30vw; 
-      max-width: 450px; 
-      height: auto; /* Mantiene la proporción real de la foto */
-      object-fit: contain;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-      flex-shrink: 0;
-    }
-
-    .hero-content { 
+    .hero-content {
       flex: 1;
-      max-width: 480px;
       text-align: center;
-      padding: 0 1rem;
+      max-width: 600px;
     }
-
+    .hero-side-img {
+      width: 22vw;
+      max-width: 320px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 1px solid var(--border-neu);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+    }
+    .hero-blob {
+      position: absolute; top: -12%; right: -6%;
+      width: 52vw; height: 52vw; max-width: 680px;
+      background: radial-gradient(circle, rgba(111,168,191,.13) 0%, transparent 68%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero-blob2 {
+      position: absolute; bottom: -5%; left: -4%;
+      width: 34vw; height: 34vw;
+      background: radial-gradient(circle, rgba(201,160,154,.1) 0%, transparent 68%);
+      border-radius: 50%; pointer-events: none;
+    }
     .hero-badge {
       display: inline-flex; align-items: center; gap: .5rem;
       background: var(--teal-soft); color: var(--teal);
       font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
-      padding: .4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem;
+      padding: .4rem 1rem; border-radius: 100px; margin-bottom: 1.75rem;
     }
     .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); animation: pulse 2.5s ease-in-out infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.65)} }
     
     h1 {
       font-family: var(--font-d);
-      font-size: clamp(1.8rem, 4vw, 3.4rem);
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
       font-weight: 300; line-height: 1.1;
-      margin-bottom: 1.2rem; color: var(--text);
+      margin-bottom: 1.5rem; color: var(--text);
     }
     h1 em { font-style: italic; color: var(--teal); font-weight: 400; }
-    .hero-desc { font-size: 1rem; color: var(--muted); margin: 0 auto 2.5rem; line-height: 1.7; }
-    .hero-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+    .hero-desc { font-size: 1.05rem; color: var(--muted); margin: 0 auto 2.8rem; line-height: 1.8; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
     
     .btn-primary {
       background: var(--teal); color: #fff; border: none;
-      padding: 0.9rem 2rem; font-family: var(--font-b); font-size: 0.85rem; font-weight: 500;
+      padding: 1rem 2.4rem; font-family: var(--font-b); font-size: .9rem; font-weight: 500;
       letter-spacing: .04em; cursor: pointer; text-decoration: none;
-      border-radius: 100px; display: inline-flex; align-items: center; gap: .4rem;
+      border-radius: 100px; display: inline-flex; align-items: center; gap: .45rem;
       transition: background .25s, transform .25s var(--ease), box-shadow .25s;
     }
     .btn-primary:hover { background: #5a92a8; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(111,168,191,.28); }
     .btn-ghost {
       background: transparent; color: var(--text); border: 1px solid var(--border-neu);
-      padding: 0.9rem 2rem; font-family: var(--font-b); font-size: 0.85rem; font-weight: 300;
+      padding: 1rem 2.4rem; font-family: var(--font-b); font-size: .9rem; font-weight: 300;
       cursor: pointer; text-decoration: none; border-radius: 100px;
       transition: border-color .25s, color .25s;
     }
     .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
 
-    /* ─── SERVICIOS ─── */
+    /* ─── SECTION BASE ─── */
     section { padding: 5.5rem 6%; }
     .inner { max-width: 1160px; margin: 0 auto; }
     .sec-lbl { font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal); margin-bottom: .6rem; }
@@ -143,11 +149,12 @@
     h2 em { font-style: italic; color: var(--teal); }
     .sec-line { width: 36px; height: 1.5px; background: var(--teal2); margin-bottom: 1.5rem; border-radius: 2px; }
 
+    /* ─── SERVICIOS ─── */
     #servicios { background: var(--bg2); }
     .svc-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(256px,1fr)); gap: 1.1rem; }
     .svc-card {
       background: var(--card); border: 1px solid var(--border-neu); border-radius: 22px;
-      padding: 2rem 1.75rem; transition: transform .45s var(--ease), box-shadow .45s;
+      padding: 2rem 1.75rem; transition: transform .45s var(--ease), box-shadow .45s; cursor: default;
     }
     .svc-card:hover { transform: translateY(-5px); box-shadow: 0 18px 50px rgba(111,168,191,.13); }
     .svc-ico { width: 50px; height: 50px; border-radius: 15px; background: var(--teal-soft); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; margin-bottom: 1.25rem; }
@@ -155,13 +162,98 @@
     .svc-card p { font-size: .87rem; color: var(--muted); line-height: 1.7; }
     .svc-tag { display: inline-block; margin-top: 1.1rem; background: var(--teal-soft); color: var(--teal); font-size: .68rem; letter-spacing: .1em; padding: .28rem .85rem; border-radius: 100px; }
 
+    /* ─── BENEFICIOS ─── */
+    #beneficios { background: var(--bg); }
+    .bene-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .bene-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .bene-box {
+      background: var(--card); border: 1px solid var(--border-neu); border-radius: 20px; padding: 1.5rem;
+      transition: transform .45s var(--ease);
+    }
+    .bene-box:hover { transform: translateY(-4px); }
+    .bene-box:nth-child(even) { margin-top: 1.5rem; }
+    .bene-n { font-family: var(--font-d); font-size: 2.2rem; font-weight: 600; color: var(--teal); line-height: 1; margin-bottom: .3rem; }
+    .bene-lbl { font-size: .8rem; color: var(--muted); line-height: 1.5; }
+    .bene-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .bene-list li { display: flex; align-items: flex-start; gap: .85rem; font-size: .93rem; color: var(--muted); }
+    .chk { width: 22px; height: 22px; border-radius: 50%; background: var(--teal-soft); color: var(--teal); display: inline-flex; align-items: center; justify-content: center; font-size: .72rem; flex-shrink: 0; margin-top: 2px; }
+
+    /* ─── INSTAGRAM ─── */
+    #instagram { background: var(--bg2); }
+    .ig-top { text-align: center; max-width: 520px; margin: 0 auto 2.8rem; }
+    .ig-handle {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .86rem; color: var(--teal); text-decoration: none;
+      border: 1px solid var(--border); padding: .42rem 1.1rem; border-radius: 100px;
+      margin-bottom: 1.25rem; transition: background .25s;
+    }
+    .ig-handle:hover { background: var(--teal-soft); }
+    .ig-grid-real {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .ig-post-item {
+      background: var(--card);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border-neu);
+      display: flex;
+      justify-content: center;
+      transition: transform .4s var(--ease);
+    }
+    .ig-post-item:hover { transform: translateY(-5px); }
+    .instagram-media { margin: 0 !important; width: 100% !important; min-width: 300px !important; }
+    .ig-cta-wrap { text-align: center; margin-top: 2.5rem; }
+
+    /* ─── CONTACTO ─── */
+    #contacto { background: var(--bg); }
+    .cto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .cto-info p.desc { color: var(--muted); font-size: .94rem; margin-bottom: 2rem; }
+    .info-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .info-row { display: flex; align-items: center; gap: 1rem; }
+    .info-ico { width: 44px; height: 44px; border-radius: 13px; background: var(--teal-soft); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .info-sublbl { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: .18rem; }
+    .info-v { font-size: .93rem; color: var(--text); }
+    .info-v a { color: var(--text); text-decoration: none; transition: color .2s; }
+    .info-v a:hover { color: var(--teal); }
+    .cto-form { display: flex; flex-direction: column; gap: 1rem; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .f-field { display: flex; flex-direction: column; gap: .38rem; }
+    .f-field label { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    .f-field input, .f-field textarea, .f-field select {
+      background: var(--card); border: 1px solid var(--border-neu); border-radius: 12px;
+      padding: .78rem 1rem; color: var(--text);
+      font-family: var(--font-b); font-size: .9rem; font-weight: 300;
+      outline: none; appearance: none;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .f-field input:focus, .f-field textarea:focus, .f-field select:focus {
+      border-color: var(--teal2); box-shadow: 0 0 0 3px rgba(111,168,191,.12);
+    }
+    .f-field textarea { min-height: 110px; resize: vertical; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--text); color: rgba(255,255,255,.5); padding: 2.8rem 6%; }
+    .foot-in { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .foot-logo-m { display: block; font-family: var(--font-d); font-size: 1.25rem; font-weight: 600; color: #fff; }
+    .foot-logo-s { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal2); }
+    .foot-copy { font-size: .76rem; }
+    .foot-links { display: flex; gap: 1.5rem; }
+    .foot-links a { font-size: .76rem; color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; }
+    .foot-links a:hover { color: var(--teal2); }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 860px) {
-      #inicio { padding-top: 7rem; }
+      #inicio { padding-top: 6rem; }
       .hero-container { flex-direction: column; text-align: center; }
-      .hero-side-img { width: 80vw; max-width: 350px; order: 2; }
-      .hero-side-img:last-child { order: 3; }
+      .hero-side-img { width: 70vw; max-width: 280px; order: 2; }
       .hero-content { order: 1; margin-bottom: 2rem; }
+      .bene-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+      .cto-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .f-row { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
   </style>
@@ -183,20 +275,23 @@
   </nav>
 
   <section id="inicio">
+    <div class="hero-blob"></div>
+    <div class="hero-blob2"></div>
+    
     <div class="hero-container">
-      <img src="https://i.postimg.cc/gk9Sb03Y/Whats-App-Image-2026-04-09-at-2-42-07-PM.jpg" alt="Plaquetas PRP" class="hero-side-img">
+      <img src="FOTO_IZQUIERDA.jpg" alt="Tratamiento DermaGlow" class="hero-side-img">
 
       <div class="hero-content">
         <div class="hero-badge"><div class="pulse"></div>Sesiones disponibles</div>
         <h1>Tu bienestar<br>comienza <em>desde adentro</em></h1>
-        <p class="hero-desc">Sueroterapia de alta calidad para hidratar y revitalizar tu cuerpo en Viña del Mar.</p>
+        <p class="hero-desc">Sueroterapia de alta calidad para hidratar, recuperar y revitalizar tu cuerpo. Resultados que se sienten desde la primera sesión.</p>
         <div class="hero-btns">
           <a href="#contacto" class="btn-primary">Agendar sesión ✦</a>
           <a href="#servicios" class="btn-ghost">Ver tratamientos</a>
         </div>
       </div>
 
-      <img src="https://i.postimg.cc/zDHtQhHN/Whats-App-Image-2026-04-09-at-2-43-46-PM.jpg" alt="Sueroterapia" class="hero-side-img">
+      <img src="FOTO_DERECHA.jpg" alt="Resultados DermaGlow" class="hero-side-img">
     </div>
   </section>
 
@@ -217,6 +312,128 @@
     </div>
   </section>
 
+  <section id="beneficios">
+    <div class="inner">
+      <div class="bene-wrap">
+        <div>
+          <p class="sec-lbl">¿Por qué elegirnos?</p>
+          <h2>Resultados que <em>se sienten</em></h2>
+          <div class="sec-line"></div>
+          <p style="color:var(--muted);font-size:.93rem;">Nuestro objetivo no es cambiar tu rostro, sino resaltar tu mejor versión. Aplicamos técnicas avanzadas para evitar el efecto "congelado".</p>
+          <ul class="bene-list">
+            <li><span class="chk">✓</span>Aplicación por profesionales de salud certificados</li>
+            <li><span class="chk">✓</span>Insumos estériles y de grado clínico</li>
+            <li><span class="chk">✓</span>Fórmulas personalizadas según tu estado de salud</li>
+            <li><span class="chk">✓</span>Ambiente privado, cómodo y sin esperas</li>
+            <li><span class="chk">✓</span>Seguimiento post-sesión incluido</li>
+          </ul>
+        </div>
+        <div class="bene-nums">
+          <div class="bene-box"><div class="bene-n">100%</div><div class="bene-lbl">Absorción intravenosa directa</div></div>
+          <div class="bene-box"><div class="bene-n">30'</div><div class="bene-lbl">Resultados perceptibles en minutos</div></div>
+          <div class="bene-box"><div class="bene-n">+100</div><div class="bene-lbl">Sesiones realizadas con éxito</div></div>
+          <div class="bene-box"><div class="bene-n">★ 5</div><div class="bene-lbl">Valoración promedio de clientas</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="instagram">
+    <div class="inner">
+      <div class="ig-top">
+        <p class="sec-lbl">Síguenos</p>
+        <h2>Nuestra comunidad <em>en Instagram</em></h2>
+        <a href="https://www.instagram.com/dermaglow_clinical" target="_blank" rel="noopener" class="ig-handle">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          @dermaglow_clinical
+        </a>
+      </div>
+      
+      <div class="ig-grid-real">
+        <div class="ig-post-item">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DV1nHSqgcQY/" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="ig-post-item">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DO_J0RcDrsY/" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="ig-post-item">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DUGVKJcjpJZ/" data-instgrm-version="14"></blockquote>
+        </div>
+      </div>
+
+      <div class="ig-cta-wrap">
+        <a href="https://www.instagram.com/dermaglow_clinical" target="_blank" rel="noopener" class="btn-primary">Ver perfil completo</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="inner">
+      <div class="cto-grid">
+        <div class="cto-info">
+          <p class="sec-lbl">Contacto</p>
+          <h2>¿Lista para tu <em>primera sesión</em>?</h2>
+          <div class="sec-line"></div>
+          <p class="desc">Escríbenos o llena el formulario y te contactamos en menos de 24 horas para coordinar tu cita.</p>
+          <div class="info-list">
+            <div class="info-row">
+              <div class="info-ico">📞</div>
+              <div><div class="info-sublbl">WhatsApp</div><div class="info-v"><a href="https://wa.me/56937335820" target="_blank">+56 9 3733 5820</a></div></div>
+            </div>
+            <div class="info-row">
+              <div class="info-ico">📧</div>
+              <div><div class="info-sublbl">Email</div><div class="info-v"><a href="mailto:glowclinical@gmail.com">glowclinical@gmail.com</a></div></div>
+            </div>
+            <div class="info-row">
+              <div class="info-ico">📍</div>
+              <div><div class="info-sublbl">Ubicación</div><div class="info-v">1 Norte, 461 Oficina 407 Edificio Campus, Viña del Mar</div></div>
+            </div>
+            <div class="info-row">
+              <div class="info-ico">🕐</div>
+              <div><div class="info-sublbl">Horario</div><div class="info-v">Lun – Sáb · 9:00 a 19:00 hrs</div></div>
+            </div>
+          </div>
+        </div>
+        <form action="https://formspree.io/f/xvzvgrpv" method="POST" class="cto-form">
+          <div class="f-row">
+            <div class="f-field"><label>Nombre</label><input type="text" name="nombre" placeholder="Tu nombre" required></div>
+            <div class="f-field"><label>Teléfono</label><input type="tel" name="telefono" placeholder="+56 9 …"></div>
+          </div>
+          <div class="f-field"><label>Email</label><input type="email" name="email" placeholder="tu@email.com" required></div>
+          <div class="f-field">
+            <label>Sesión de interés</label>
+            <select name="tratamiento">
+              <option value="">Selecciona un tratamiento</option>
+              <option>Sueroterapia</option>
+              <option>Pink Glow</option>
+              <option>Plasma Rico en Plaquetas</option>
+              <option>Toxina Botulínica (Botox)</option>
+            </select>
+          </div>
+          <div class="f-field"><label>Mensaje</label><textarea name="mensaje" placeholder="¿Alguna consulta o condición que debamos considerar?"></textarea></div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:.5rem;">Enviar solicitud ✦</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-in">
+      <div>
+        <span class="foot-logo-m">DermaGlow</span>
+        <span class="foot-logo-s">Clinical · Sueroterapia</span>
+      </div>
+      <p class="foot-copy">© 2026 DermaGlow Clinical · Todos los derechos reservados</p>
+      <div class="foot-links">
+        <a href="https://www.instagram.com/dermaglow_clinical" target="_blank" rel="noopener">Instagram</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script async src="//www.instagram.com/embed.js"></script>
+
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
@@ -226,13 +443,28 @@
     });
 
     window.addEventListener('DOMContentLoaded', () => {
+      // Agregamos .hero-side-img a la lista de animaciones
       ['.hero-side-img', '.hero-badge','h1','.hero-desc','.hero-btns'].forEach((sel,i) => {
-        const els = document.querySelectorAll(sel);
-        els.forEach(el => {
-          Object.assign(el.style, { opacity:'0', transform:'translateY(30px)', transition:`opacity 1s var(--ease) ${i*.15}s, transform 1s var(--ease) ${i*.15}s` });
-          setTimeout(() => { el.style.opacity='1'; el.style.transform='translateY(0)'; }, 50);
+        const el = document.querySelectorAll(sel);
+        el.forEach(item => {
+          Object.assign(item.style, { opacity:'0', transform:'translateY(20px)', transition:`opacity .9s cubic-bezier(.22,1,.36,1) ${i*.13}s, transform .9s cubic-bezier(.22,1,.36,1) ${i*.13}s` });
+          requestAnimationFrame(() => requestAnimationFrame(() => { item.style.opacity='1'; item.style.transform='translateY(0)'; }));
         });
       });
+    });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          setTimeout(() => { e.target.style.opacity='1'; e.target.style.transform='translateY(0) scale(1)'; }, +e.target.dataset.d||0);
+        }
+      });
+    }, { threshold: .07 });
+
+    document.querySelectorAll('.svc-card,.bene-box,.info-row').forEach((el,i) => {
+      Object.assign(el.style, { opacity:'0', transform:'translateY(26px) scale(.98)', transition:`.75s cubic-bezier(.22,1,.36,1)` });
+      el.dataset.d = (i%4)*65;
+      obs.observe(el);
     });
   </script>
 </body>
