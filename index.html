@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DermaGlow Clinical · Sueroterapia</title>
+  
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/Ty5W1Q6G/logo.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -15,7 +18,7 @@
       --bg3:        #e3dbd4;
       --card:       #fdfcfb;
       --teal:       #6fa8bf;
-      --teal2:      #9fc8d8;
+      --teal2:      --teal;
       --teal-soft:  #e2eff5;
       --rose:       #c9a09a;
       --text:       #28201c;
@@ -35,6 +38,7 @@
       font-weight: 300;
       line-height: 1.75;
       font-size: 16px;
+      overflow-x: hidden;
     }
 
     /* ─── NAV ─── */
@@ -47,9 +51,21 @@
       border-bottom: 1px solid var(--border-neu);
       transition: padding .4s var(--ease), box-shadow .4s;
     }
-    .nav-logo { text-decoration: none; line-height: 1.1; }
+    .nav-logo { 
+        display: flex; 
+        align-items: center; 
+        text-decoration: none; 
+        gap: 12px;
+    }
+    .nav-logo img {
+        height: 45px; 
+        width: auto;
+        transition: height 0.4s var(--ease);
+    }
+    .nav-logo-text { line-height: 1.1; }
     .nav-logo-main { display: block; font-family: var(--font-d); font-size: 1.4rem; font-weight: 600; color: var(--text); letter-spacing: .03em; }
     .nav-logo-sub  { display: block; font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--teal); }
+    
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; transition: color .25s; }
     .nav-links a:hover { color: var(--teal); }
@@ -61,93 +77,100 @@
     }
     .nav-cta:hover { background: #5a92a8; transform: translateY(-1px); }
 
-    /* ─── HERO ACTUALIZADO ─── */
+    /* ─── HERO ─── */
     #inicio {
       min-height: 100vh;
-      display: flex; 
-      align-items: center;
-      justify-content: center;
-      padding: 8rem 4% 4rem;
-      position: relative; 
-      overflow: hidden;
-    }
-    .hero-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 8rem 4% 4rem;
+    }
+
+    .hero-container-centered {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 100%;
-      max-width: 1300px;
-      gap: 2rem;
+      max-width: 750px;
+      gap: 3rem;
       z-index: 5;
     }
-    .hero-content {
-      flex: 1;
+
+    .hero-content-centered {
       text-align: center;
-      max-width: 600px;
+      max-width: 700px;
     }
-    .hero-side-img {
-      width: 22vw;
-      max-width: 320px;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 24px;
-      border: 1px solid var(--border-neu);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-    }
-    .hero-blob {
-      position: absolute; top: -12%; right: -6%;
-      width: 52vw; height: 52vw; max-width: 680px;
-      background: radial-gradient(circle, rgba(111,168,191,.13) 0%, transparent 68%);
-      border-radius: 50%; pointer-events: none;
-    }
-    .hero-blob2 {
-      position: absolute; bottom: -5%; left: -4%;
-      width: 34vw; height: 34vw;
-      background: radial-gradient(circle, rgba(201,160,154,.1) 0%, transparent 68%);
-      border-radius: 50%; pointer-events: none;
-    }
+
     .hero-badge {
       display: inline-flex; align-items: center; gap: .5rem;
       background: var(--teal-soft); color: var(--teal);
       font-size: .7rem; letter-spacing: .18em; text-transform: uppercase;
-      padding: .4rem 1rem; border-radius: 100px; margin-bottom: 1.75rem;
+      padding: .4rem 1rem; border-radius: 100px; margin-bottom: 2rem;
     }
     .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); animation: pulse 2.5s ease-in-out infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.65)} }
     
     h1 {
       font-family: var(--font-d);
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
       font-weight: 300; line-height: 1.1;
       margin-bottom: 1.5rem; color: var(--text);
     }
     h1 em { font-style: italic; color: var(--teal); font-weight: 400; }
-    .hero-desc { font-size: 1.05rem; color: var(--muted); margin: 0 auto 2.8rem; line-height: 1.8; }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .hero-desc { font-size: 1.1rem; color: var(--muted); margin: 0 auto 3rem; line-height: 1.8; max-width: 550px; }
+    .hero-btns { display: flex; gap: 1.2rem; justify-content: center; }
     
     .btn-primary {
       background: var(--teal); color: #fff; border: none;
-      padding: 1rem 2.4rem; font-family: var(--font-b); font-size: .9rem; font-weight: 500;
+      padding: 1.1rem 2.6rem; font-family: var(--font-b); font-size: .95rem; font-weight: 500;
       letter-spacing: .04em; cursor: pointer; text-decoration: none;
-      border-radius: 100px; display: inline-flex; align-items: center; gap: .45rem;
+      border-radius: 100px; display: inline-flex; align-items: center; gap: .5rem;
       transition: background .25s, transform .25s var(--ease), box-shadow .25s;
     }
-    .btn-primary:hover { background: #5a92a8; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(111,168,191,.28); }
+    .btn-primary:hover { background: #5a92a8; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(111,168,191,.25); }
     .btn-ghost {
       background: transparent; color: var(--text); border: 1px solid var(--border-neu);
-      padding: 1rem 2.4rem; font-family: var(--font-b); font-size: .9rem; font-weight: 300;
+      padding: 1.1rem 2.6rem; font-family: var(--font-b); font-size: .95rem; font-weight: 300;
       cursor: pointer; text-decoration: none; border-radius: 100px;
       transition: border-color .25s, color .25s;
     }
     .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
 
+    .hero-central-gallery {
+      width: 100%;
+      height: 35vh;
+      position: relative;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid var(--border-neu);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.07);
+    }
+
+    .central-slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s var(--ease), transform 1.2s var(--ease);
+      transform: scale(1.03);
+    }
+
+    .central-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
     /* ─── SECTION BASE ─── */
-    section { padding: 5.5rem 6%; }
+    section { padding: 6rem 6%; }
     .inner { max-width: 1160px; margin: 0 auto; }
     .sec-lbl { font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal); margin-bottom: .6rem; }
-    h2 { font-family: var(--font-d); font-size: clamp(1.9rem,4vw,2.9rem); font-weight: 300; line-height: 1.15; margin-bottom: 1rem; color: var(--text); }
+    h2 { font-family: var(--font-d); font-size: clamp(2rem,4vw,3rem); font-weight: 300; line-height: 1.15; margin-bottom: 1rem; color: var(--text); }
     h2 em { font-style: italic; color: var(--teal); }
-    .sec-line { width: 36px; height: 1.5px; background: var(--teal2); margin-bottom: 1.5rem; border-radius: 2px; }
+    .sec-line { width: 36px; height: 1.5px; background: var(--teal); margin-bottom: 1.5rem; border-radius: 2px; }
 
     /* ─── SERVICIOS ─── */
     #servicios { background: var(--bg2); }
@@ -161,6 +184,48 @@
     .svc-card h3 { font-family: var(--font-d); font-size: 1.25rem; font-weight: 600; margin-bottom: .55rem; color: var(--text); }
     .svc-card p { font-size: .87rem; color: var(--muted); line-height: 1.7; }
     .svc-tag { display: inline-block; margin-top: 1.1rem; background: var(--teal-soft); color: var(--teal); font-size: .68rem; letter-spacing: .1em; padding: .28rem .85rem; border-radius: 100px; }
+
+    /* ─── RESULTADOS ─── */
+    #resultados { background: var(--bg); }
+    .res-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .res-card { 
+      border-radius: 24px; overflow: hidden; aspect-ratio: 1 / 1; 
+      border: 1px solid var(--border-neu); cursor: pointer;
+      transition: transform 0.4s var(--ease), box-shadow 0.4s;
+    }
+    .res-card img { width: 100%; height: 100%; object-fit: cover; }
+    .res-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+
+    /* ─── LIGHTBOX ─── */
+    #lightbox {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: #000; z-index: 1000;
+      display: none; align-items: center; justify-content: center;
+      flex-direction: column;
+      backdrop-filter: blur(15px);
+    }
+    .lb-content { 
+      position: relative; width: 100%; max-width: 450px; height: 92vh; 
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; border-radius: 20px; background: #111;
+    }
+    .lb-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .lb-header {
+      position: absolute; top: 0; left: 0; right: 0;
+      padding: 20px 15px 40px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%);
+      z-index: 1015; pointer-events: none;
+    }
+    .lb-bars { display: flex; gap: 4px; margin-bottom: 12px; }
+    .lb-bar { height: 2.5px; flex: 1; background: rgba(255,255,255,0.25); border-radius: 4px; overflow: hidden; }
+    .lb-bar.active { background: #fff; }
+    .lb-user { display: flex; align-items: center; gap: 10px; }
+    .lb-avatar { width: 32px; height: 32px; border-radius: 50%; background: #fff; object-fit: cover; }
+    .lb-username { color: #fff; font-size: 0.88rem; font-weight: 500; }
+    .lb-touch-zone { position: absolute; top: 0; width: 50%; height: 100%; z-index: 1005; cursor: pointer; }
+    .lb-prev { left: 0; }
+    .lb-next { right: 0; }
+    .lb-close { position: fixed; top: 35px; right: 20px; color: #fff; font-size: 2.5rem; cursor: pointer; z-index: 1020; opacity: 0.7; transition: opacity 0.2s; }
 
     /* ─── BENEFICIOS ─── */
     #beneficios { background: var(--bg); }
@@ -176,7 +241,7 @@
     .bene-lbl { font-size: .8rem; color: var(--muted); line-height: 1.5; }
     .bene-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
     .bene-list li { display: flex; align-items: flex-start; gap: .85rem; font-size: .93rem; color: var(--muted); }
-    .chk { width: 22px; height: 22px; border-radius: 50%; background: var(--teal-soft); color: var(--teal); display: inline-flex; align-items: center; justify-content: center; font-size: .72rem; flex-shrink: 0; margin-top: 2px; }
+    .chk { width: 22px; height: 22px; border-radius: 50%; background: var(--teal-soft); color: var(--teal); display: inline-flex; align-items: center; justify-content: center; font-size: .72rem; flex-shrink: 0; }
 
     /* ─── INSTAGRAM ─── */
     #instagram { background: var(--bg2); }
@@ -187,73 +252,56 @@
       border: 1px solid var(--border); padding: .42rem 1.1rem; border-radius: 100px;
       margin-bottom: 1.25rem; transition: background .25s;
     }
-    .ig-handle:hover { background: var(--teal-soft); }
-    .ig-grid-real {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .ig-post-item {
-      background: var(--card);
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--border-neu);
-      display: flex;
-      justify-content: center;
-      transition: transform .4s var(--ease);
-    }
+    .ig-grid-real { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+    .ig-post-item { background: var(--card); border-radius: 18px; overflow: hidden; border: 1px solid var(--border-neu); transition: transform .4s var(--ease); }
     .ig-post-item:hover { transform: translateY(-5px); }
-    .instagram-media { margin: 0 !important; width: 100% !important; min-width: 300px !important; }
-    .ig-cta-wrap { text-align: center; margin-top: 2.5rem; }
+    
+    /* CORRECCIÓN: Centrado del botón de Instagram */
+    .ig-cta-wrap { 
+      display: flex; 
+      justify-content: center; 
+      margin-top: 3.5rem; 
+    }
 
     /* ─── CONTACTO ─── */
     #contacto { background: var(--bg); }
-    .cto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .cto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .cto-info p.desc { color: var(--muted); font-size: .94rem; margin-bottom: 2rem; }
     .info-list { display: flex; flex-direction: column; gap: 1.2rem; }
     .info-row { display: flex; align-items: center; gap: 1rem; }
-    .info-ico { width: 44px; height: 44px; border-radius: 13px; background: var(--teal-soft); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .info-ico { width: 44px; height: 44px; border-radius: 13px; background: var(--teal-soft); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
     .info-sublbl { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: .18rem; }
     .info-v { font-size: .93rem; color: var(--text); }
-    .info-v a { color: var(--text); text-decoration: none; transition: color .2s; }
-    .info-v a:hover { color: var(--teal); }
-    .cto-form { display: flex; flex-direction: column; gap: 1rem; }
+    .map-container { width: 100%; height: 450px; border-radius: 24px; overflow: hidden; border: 1px solid var(--border-neu); }
+    .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+    .cto-form-wrap { margin-top: 4rem; padding-top: 4rem; border-top: 1px solid var(--border-neu); }
+    .cto-form { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .f-fields { display: flex; flex-direction: column; gap: 1rem; }
     .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .f-field { display: flex; flex-direction: column; gap: .38rem; }
     .f-field label { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
     .f-field input, .f-field textarea, .f-field select {
       background: var(--card); border: 1px solid var(--border-neu); border-radius: 12px;
-      padding: .78rem 1rem; color: var(--text);
-      font-family: var(--font-b); font-size: .9rem; font-weight: 300;
-      outline: none; appearance: none;
-      transition: border-color .25s, box-shadow .25s;
+      padding: .78rem 1rem; color: var(--text); font-family: var(--font-b); outline: none;
     }
-    .f-field input:focus, .f-field textarea:focus, .f-field select:focus {
-      border-color: var(--teal2); box-shadow: 0 0 0 3px rgba(111,168,191,.12);
-    }
-    .f-field textarea { min-height: 110px; resize: vertical; }
+    .f-field input:focus, .f-field textarea:focus { border-color: var(--teal); }
 
     /* ─── FOOTER ─── */
     footer { background: var(--text); color: rgba(255,255,255,.5); padding: 2.8rem 6%; }
     .foot-in { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
     .foot-logo-m { display: block; font-family: var(--font-d); font-size: 1.25rem; font-weight: 600; color: #fff; }
-    .foot-logo-s { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal2); }
-    .foot-copy { font-size: .76rem; }
-    .foot-links { display: flex; gap: 1.5rem; }
-    .foot-links a { font-size: .76rem; color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; }
-    .foot-links a:hover { color: var(--teal2); }
+    .foot-logo-s { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 860px) {
-      #inicio { padding-top: 6rem; }
-      .hero-container { flex-direction: column; text-align: center; }
-      .hero-side-img { width: 70vw; max-width: 280px; order: 2; }
-      .hero-content { order: 1; margin-bottom: 2rem; }
-      .bene-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
-      .cto-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .f-row { grid-template-columns: 1fr; }
+      nav { padding: 0.8rem 5%; }
+      .nav-logo img { height: 35px; }
+      .nav-logo-main { font-size: 1.1rem; }
+      .nav-logo-sub { font-size: 0.55rem; }
+      #inicio { padding-top: 7rem; }
+      .hero-btns { flex-direction: column; gap: 0.8rem; }
+      .cto-grid, .cto-form { grid-template-columns: 1fr; }
       .nav-links { display: none; }
     }
   </style>
@@ -262,11 +310,15 @@
 
   <nav id="nav">
     <a href="#inicio" class="nav-logo">
-      <span class="nav-logo-main">DermaGlow</span>
-      <span class="nav-logo-sub">Clinical · Sueroterapia</span>
+      <img src="https://i.postimg.cc/Ty5W1Q6G/logo.png" alt="DermaGlow Logo">
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">DermaGlow</span>
+        <span class="nav-logo-sub">Clinical · Sueroterapia</span>
+      </div>
     </a>
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#resultados">Resultados</a></li>
       <li><a href="#beneficios">Beneficios</a></li>
       <li><a href="#instagram">Instagram</a></li>
       <li><a href="#contacto">Contacto</a></li>
@@ -275,13 +327,8 @@
   </nav>
 
   <section id="inicio">
-    <div class="hero-blob"></div>
-    <div class="hero-blob2"></div>
-    
-    <div class="hero-container">
-      <img src="FOTO_IZQUIERDA.jpg" alt="Tratamiento DermaGlow" class="hero-side-img">
-
-      <div class="hero-content">
+    <div class="hero-container-centered">
+      <div class="hero-content-centered">
         <div class="hero-badge"><div class="pulse"></div>Sesiones disponibles</div>
         <h1>Cuidamos tu bienestar<br>de manera <em>integral</em></h1>
         <p class="hero-desc">Salud interna y estética avanzada para potenciar tu belleza natural.</p>
@@ -290,8 +337,12 @@
           <a href="#servicios" class="btn-ghost">Ver tratamientos</a>
         </div>
       </div>
-
-      <img src="FOTO_DERECHA.jpg" alt="Resultados DermaGlow" class="hero-side-img">
+      <div class="hero-central-gallery">
+        <div class="central-slide active" style="background-image: url('https://i.postimg.cc/y8jFLbWZ/botox.jpg');"></div>
+        <div class="central-slide" style="background-image: url('https://i.postimg.cc/QCpJqNRk/Pinkglow-(1).png');"></div>
+        <div class="central-slide" style="background-image: url('https://i.postimg.cc/7Z9gKWbS/plasma.jpg');"></div>
+        <div class="central-slide" style="background-image: url('https://i.postimg.cc/dV685xD8/sueroterapia.jpg');"></div>
+      </div>
     </div>
   </section>
 
@@ -301,16 +352,47 @@
         <p class="sec-lbl">Nuestros tratamientos</p>
         <h2>Sesiones diseñadas <em>para ti</em></h2>
         <div class="sec-line"></div>
-        <p style="color:var(--muted);font-size:.93rem;">Servicios dermoestéticos efectuados por profesional de enfermería especializada, priorizando tu salud y bienestar.</p>
       </div>
       <div class="svc-grid">
-        <div class="svc-card"><div class="svc-ico">💧</div><h3>Sueroterapia</h3><p>Optimiza tu salud de manera inmediata. Nuestra sueroterapia entrega vitaminas, minerales y antioxidantes directamente al torrente sanguíneo, garantizando una absorción del 100%.</p><span class="svc-tag">45 – 60 min</span></div>
-        <div class="svc-card"><div class="svc-ico">🩷</div><h3>Pink Glow</h3><p>El tratamiento de mesoterapia más avanzado para recuperar la vitalidad perdida. Gracias a su combinación de más de 50 ingredientes activos, unifica el tono e ilumina tu rostro.</p><span class="svc-tag">60 min</span></div>
-        <div class="svc-card"><div class="svc-ico">🩸</div><h3>Plasma Rico en Plaquetas</h3><p>Utilizamos la regeneración natural de tu propio cuerpo para devolverle la firmeza y elasticidad a tu piel potenciando su brillo y producción de colageno de manera natural.</p><span class="svc-tag">60 min</span></div>
-        <div class="svc-card"><div class="svc-ico">💉</div><h3>Toxina Botulínica (Botox)</h3><p>Recupera una mirada descansada y juvenil con resultados naturales. Aplicamos toxina botulínica de alta pureza para relajar los músculos responsables de las arrugas.</p><span class="svc-tag">45 min</span></div>
+        <div class="svc-card"><div class="svc-ico">💧</div><h3>Sueroterapia</h3><p>Optimiza tu salud de manera inmediata. Nuestra sueroterapia entrega vitaminas y antioxidantes directamente al torrente sanguíneo.</p><span class="svc-tag">45 – 60 min</span></div>
+        <div class="svc-card"><div class="svc-ico">🩷</div><h3>Pink Glow</h3><p>Tratamiento de mesoterapia avanzado para recuperar vitalidad, unificar el tono e iluminar tu rostro.</p><span class="svc-tag">60 min</span></div>
+        <div class="svc-card"><div class="svc-ico">🩸</div><h3>Plasma rico en plaquetas</h3><p>Regeneración natural para devolverle la firmeza y elasticidad a tu piel potenciando el colágeno.</p><span class="svc-tag">60 min</span></div>
+        <div class="svc-card"><div class="svc-ico">💉</div><h3>Botox</h3><p>Recupera una mirada descansada y juvenil con resultados naturales de alta pureza.</p><span class="svc-tag">45 min</span></div>
       </div>
     </div>
   </section>
+
+  <section id="resultados">
+    <div class="inner">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+        <p class="sec-lbl">Antes y Después</p>
+        <h2>Resultados <em>reales</em></h2>
+        <div class="sec-line" style="margin: 1.5rem auto;"></div>
+      </div>
+      <div class="res-grid">
+        <div class="res-card" onclick="openLightbox(0)"><img src="https://i.postimg.cc/Jz2yFVcw/Diseno-sin-titulo-(6).png"></div>
+        <div class="res-card" onclick="openLightbox(1)"><img src="https://i.postimg.cc/kgpVH3Nk/Diseno-sin-titulo-(7).png"></div>
+        <div class="res-card" onclick="openLightbox(2)"><img src="https://i.postimg.cc/8z0FYQd9/Diseno-sin-titulo-(8).png"></div>
+        <div class="res-card" onclick="openLightbox(3)"><img src="https://i.postimg.cc/4xd7wNcr/Diseno-sin-titulo-(9).png"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="lightbox">
+    <span class="lb-close" onclick="closeLightbox()">×</span>
+    <div class="lb-content">
+      <div class="lb-header">
+        <div class="lb-bars" id="lbBars"></div>
+        <div class="lb-user">
+          <img src="https://i.postimg.cc/B6vVnFPM/icon.jpg" class="lb-avatar">
+          <span class="lb-username">dermaglow_clinical</span>
+        </div>
+      </div>
+      <div class="lb-touch-zone lb-prev" onclick="changeImg(-1, event)"></div>
+      <div class="lb-touch-zone lb-next" onclick="changeImg(1, event)"></div>
+      <img class="lb-img" id="lbImg" src="">
+    </div>
+  </div>
 
   <section id="beneficios">
     <div class="inner">
@@ -319,20 +401,15 @@
           <p class="sec-lbl">¿Por qué elegirnos?</p>
           <h2>Resultados que <em>se sienten</em></h2>
           <div class="sec-line"></div>
-          <p style="color:var(--muted);font-size:.93rem;">Nuestro objetivo no es cambiar tu rostro, sino resaltar tu mejor versión. Aplicamos técnicas avanzadas para evitar el efecto "congelado".</p>
           <ul class="bene-list">
-            <li><span class="chk">✓</span>Aplicación por profesionales de salud certificados</li>
+            <li><span class="chk">✓</span>Profesionales de salud certificados</li>
             <li><span class="chk">✓</span>Insumos estériles y de grado clínico</li>
-            <li><span class="chk">✓</span>Fórmulas personalizadas según tu estado de salud</li>
-            <li><span class="chk">✓</span>Ambiente privado, cómodo y sin esperas</li>
-            <li><span class="chk">✓</span>Seguimiento post-sesión incluido</li>
+            <li><span class="chk">✓</span>Ambiente privado y sin esperas</li>
           </ul>
         </div>
         <div class="bene-nums">
-          <div class="bene-box"><div class="bene-n">100%</div><div class="bene-lbl">Absorción intravenosa directa</div></div>
-          <div class="bene-box"><div class="bene-n">30'</div><div class="bene-lbl">Resultados perceptibles en minutos</div></div>
-          <div class="bene-box"><div class="bene-n">+100</div><div class="bene-lbl">Sesiones realizadas con éxito</div></div>
-          <div class="bene-box"><div class="bene-n">★ 5</div><div class="bene-lbl">Valoración promedio de clientas</div></div>
+          <div class="bene-box"><div class="bene-n">100%</div><div class="bene-lbl">Absorción intravenosa</div></div>
+          <div class="bene-box"><div class="bene-n">+100</div><div class="bene-lbl">Sesiones con éxito</div></div>
         </div>
       </div>
     </div>
@@ -348,7 +425,6 @@
           @dermaglow_clinical
         </a>
       </div>
-      
       <div class="ig-grid-real">
         <div class="ig-post-item">
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DV1nHSqgcQY/" data-instgrm-version="14"></blockquote>
@@ -360,7 +436,6 @@
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DUGVKJcjpJZ/" data-instgrm-version="14"></blockquote>
         </div>
       </div>
-
       <div class="ig-cta-wrap">
         <a href="https://www.instagram.com/dermaglow_clinical" target="_blank" rel="noopener" class="btn-primary">Ver perfil completo</a>
       </div>
@@ -374,7 +449,7 @@
           <p class="sec-lbl">Contacto</p>
           <h2>¿Lista para tu <em>primera sesión</em>?</h2>
           <div class="sec-line"></div>
-          <p class="desc">Escríbenos o llena el formulario y te contactamos en menos de 24 horas para coordinar tu cita.</p>
+          <p class="desc">Escríbenos o llena el formulario y te contactamos en menos de 24 horas.</p>
           <div class="info-list">
             <div class="info-row">
               <div class="info-ico">📞</div>
@@ -389,29 +464,38 @@
               <div><div class="info-sublbl">Ubicación</div><div class="info-v">1 Norte, 461 Oficina 407 Edificio Campus, Viña del Mar</div></div>
             </div>
             <div class="info-row">
-              <div class="info-ico">🕐</div>
-              <div><div class="info-sublbl">Horario</div><div class="info-v">Lun – Sáb · 9:00 a 19:00 hrs</div></div>
+              <div class="info-ico">🚗</div>
+              <div><div class="info-sublbl">Atención personalizada a domicilio</div><div class="info-v"></div></div>
             </div>
           </div>
         </div>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3344.825227181312!2d-71.55182532432616!3d-33.03473187355554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689de0914099477%3A0xc392813589b94095!2s1%20Nte.%20461%2C%20Vi%C3%B1a%20del%20Mar%2C%20Valpara%C3%ADso!5e0!3m2!1ses-419!2scl!4v1712345678901!5m2!1ses-419!2scl" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="cto-form-wrap">
         <form action="https://formspree.io/f/xvzvgrpv" method="POST" class="cto-form">
-          <div class="f-row">
-            <div class="f-field"><label>Nombre</label><input type="text" name="nombre" placeholder="Tu nombre" required></div>
-            <div class="f-field"><label>Teléfono</label><input type="tel" name="telefono" placeholder="+56 9 …"></div>
+          <div class="f-fields">
+            <div class="f-row">
+              <div class="f-field"><label>Nombre</label><input type="text" name="nombre" placeholder="Tu nombre" required></div>
+              <div class="f-field"><label>Teléfono</label><input type="tel" name="telefono" placeholder="+56 9 …"></div>
+            </div>
+            <div class="f-field"><label>Email</label><input type="email" name="email" placeholder="tu@email.com" required></div>
+            <div class="f-field">
+              <label>Tratamiento</label>
+              <select name="tratamiento" style="background: var(--card); border: 1px solid var(--border-neu); border-radius: 12px; padding: .78rem 1rem; color: var(--text);">
+                <option value="">Selecciona</option>
+                <option>Sueroterapia</option>
+                <option>Pink Glow</option>
+                <option>Plasma rico en plaquetas</option>
+                <option>Botox</option>
+              </select>
+            </div>
           </div>
-          <div class="f-field"><label>Email</label><input type="email" name="email" placeholder="tu@email.com" required></div>
-          <div class="f-field">
-            <label>Sesión de interés</label>
-            <select name="tratamiento">
-              <option value="">Selecciona un tratamiento</option>
-              <option>Sueroterapia</option>
-              <option>Pink Glow</option>
-              <option>Plasma Rico en Plaquetas</option>
-              <option>Toxina Botulínica (Botox)</option>
-            </select>
+          <div class="f-fields">
+            <div class="f-field"><label>Mensaje</label><textarea name="mensaje" placeholder="¿Alguna duda?"></textarea></div>
+            <button type="submit" class="btn-primary" style="width:100%; justify-content:center; margin-top:1rem;">Enviar solicitud ✦</button>
           </div>
-          <div class="f-field"><label>Mensaje</label><textarea name="mensaje" placeholder="¿Alguna consulta o condición que debamos considerar?"></textarea></div>
-          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;margin-top:.5rem;">Enviar solicitud ✦</button>
         </form>
       </div>
     </div>
@@ -423,48 +507,74 @@
         <span class="foot-logo-m">DermaGlow</span>
         <span class="foot-logo-s">Clinical · Sueroterapia</span>
       </div>
-      <p class="foot-copy">© 2026 DermaGlow Clinical · Todos los derechos reservados</p>
-      <div class="foot-links">
-        <a href="https://www.instagram.com/dermaglow_clinical" target="_blank" rel="noopener">Instagram</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
-      </div>
+      <p class="foot-copy">© 2026 DermaGlow Clinical · Viña del Mar</p>
     </div>
   </footer>
 
   <script async src="//www.instagram.com/embed.js"></script>
-
   <script>
+    const centralSlides = document.querySelectorAll('.central-slide');
+    let currentSlideIndex = 0;
+    const slideDuration = 2500;
+
+    function startCentralSlider() {
+      if(centralSlides.length > 1) {
+        setInterval(() => {
+          centralSlides[currentSlideIndex].classList.remove('active');
+          currentSlideIndex = (currentSlideIndex + 1) % centralSlides.length;
+          centralSlides[currentSlideIndex].classList.add('active');
+        }, slideDuration);
+      }
+    }
+    startCentralSlider();
+
+    const images = [
+      "https://i.postimg.cc/Jz2yFVcw/Diseno-sin-titulo-(6).png",
+      "https://i.postimg.cc/kgpVH3Nk/Diseno-sin-titulo-(7).png",
+      "https://i.postimg.cc/8z0FYQd9/Diseno-sin-titulo-(8).png",
+      "https://i.postimg.cc/4xd7wNcr/Diseno-sin-titulo-(9).png"
+    ];
+    let currentLightboxIndex = 0;
+
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      updateLightbox();
+      document.getElementById('lightbox').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    function renderBars() {
+      const barsContainer = document.getElementById('lbBars');
+      barsContainer.innerHTML = '';
+      images.forEach((_, i) => {
+        const bar = document.createElement('div');
+        bar.className = 'lb-bar' + (i <= currentLightboxIndex ? ' active' : '');
+        barsContainer.appendChild(bar);
+      });
+    }
+    function updateLightbox() {
+      const lbImg = document.getElementById('lbImg');
+      lbImg.src = images[currentLightboxIndex];
+      renderBars();
+    }
+    function changeImg(step, event) {
+      event.stopPropagation();
+      currentLightboxIndex += step;
+      if (currentLightboxIndex >= images.length) { closeLightbox(); return; }
+      if (currentLightboxIndex < 0) { currentLightboxIndex = 0; }
+      updateLightbox();
+    }
+
     const nav = document.getElementById('nav');
+    const navImg = document.querySelector('.nav-logo img');
     window.addEventListener('scroll', () => {
       const s = window.scrollY > 55;
       nav.style.padding = s ? '.75rem 6%' : '1.2rem 6%';
       nav.style.boxShadow = s ? '0 2px 30px rgba(111,168,191,.1)' : 'none';
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      // Agregamos .hero-side-img a la lista de animaciones
-      ['.hero-side-img', '.hero-badge','h1','.hero-desc','.hero-btns'].forEach((sel,i) => {
-        const el = document.querySelectorAll(sel);
-        el.forEach(item => {
-          Object.assign(item.style, { opacity:'0', transform:'translateY(20px)', transition:`opacity .9s cubic-bezier(.22,1,.36,1) ${i*.13}s, transform .9s cubic-bezier(.22,1,.36,1) ${i*.13}s` });
-          requestAnimationFrame(() => requestAnimationFrame(() => { item.style.opacity='1'; item.style.transform='translateY(0)'; }));
-        });
-      });
-    });
-
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          setTimeout(() => { e.target.style.opacity='1'; e.target.style.transform='translateY(0) scale(1)'; }, +e.target.dataset.d||0);
-        }
-      });
-    }, { threshold: .07 });
-
-    document.querySelectorAll('.svc-card,.bene-box,.info-row').forEach((el,i) => {
-      Object.assign(el.style, { opacity:'0', transform:'translateY(26px) scale(.98)', transition:`.75s cubic-bezier(.22,1,.36,1)` });
-      el.dataset.d = (i%4)*65;
-      obs.observe(el);
+      if(navImg) navImg.style.height = s ? '35px' : '45px';
     });
   </script>
 </body>
